@@ -36,7 +36,7 @@ const Feed = () => {
   useEffect(() => {
     fetchPosts();
   }, []);
-
+  // Filter prompts based on search text
   const filterPrompts = (searchtext) => {
     const regex = new RegExp(searchtext, "i"); // 'i' flag for case-insensitive search
     return allPosts.filter(
@@ -46,7 +46,7 @@ const Feed = () => {
         regex.test(item.prompt)
     );
   };
-
+  // Handle search change
   const handleSearchChange = (e) => {
     clearTimeout(searchTimeout);
     setSearchText(e.target.value);
@@ -59,7 +59,7 @@ const Feed = () => {
       }, 500)
     );
   };
-
+  // Handle tag click
   const handleTagClick = (tagName) => {
     setSearchText(tagName);
 
